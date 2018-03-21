@@ -1,28 +1,48 @@
-pipeline {
-agent any
-stages {
-stage('Test') {
-steps {
-sh 'echo "Fail!"; exit 1'
-}
-}
-}
-post {
-always {
-echo 'This will always run'
-}
-success {
-echo 'This will run only if successful'
-}
-failure {
-echo 'This will run only if failed'
-}
-unstable {
-echo 'This will run only if the run was marked as unstable'
-}
-changed {
-echo 'This will run only if the state of the Pipeline has changed'
-echo 'For example, if the Pipeline was previously failing but is now successful'
-}
-}
+node('iOS Node') {
+
+    stage('Checkout/Build/Test') {
+
+        // Checkout files.
+        checkout([
+            $class: 'GitSCM',
+            branches: [[name: 'master']],
+            doGenerateSubmoduleConfigurations: false,
+            extensions: [], submoduleCfg: [],
+            userRemoteConfigs: [[
+                name: 'github',
+                url: 'https://github.com/mmorejon/time-table.git'
+            ]]
+        ])
+
+        // Build and Test
+        sh 'xcodebuild -scheme "TimeTable" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=10.1" -enableCodeCoverage YES | /usr/local/bin/xcpretty -r junit'
+
+        // Publish test restults.
+        step([$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'])
+    }
+
+    stage('Analytics') {
+        
+        parallel Coverage: {
+            // Generate Code Coverage report
+            sh '/usr/local/bin/slather coverage --jenkins --html --scheme TimeTable TimeTable.xcodeproj/'
+    
+            // Publish coverage results
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'html', reportFiles: 'index.html', reportName: 'Coverage Report'])
+        
+            
+        }, Checkstyle: {
+
+            // Generate Checkstyle report
+            sh '/usr/local/bin/swiftlint lint --reporter checkstyle > checkstyle.xml || true'
+    
+            // Publish checkstyle result
+            step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'checkstyle.xml', unHealthy: ''])
+        }, failFast: true|false   
+    }
+
+    stage ('Notify') {
+        // Send slack notification
+        slackSend channel: '#my-team', message: 'Time Table - Successfully', teamDomain: 'my-team', token: 'my-token'
+    }
 }
