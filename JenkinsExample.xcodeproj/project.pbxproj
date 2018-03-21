@@ -14,7 +14,7 @@
 		D2001E9D2062338A00074BA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2001E9B2062338A00074BA7 /* LaunchScreen.storyboard */; };
 		D2001EA82062338A00074BA7 /* JenkinsExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2001EA72062338A00074BA7 /* JenkinsExampleTests.swift */; };
 		D2001EB32062338A00074BA7 /* JenkinsExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2001EB22062338A00074BA7 /* JenkinsExampleUITests.swift */; };
-		D2001EC820624FF000074BA7 /* Jenkinsfile in Resources */ = {isa = PBXBuildFile; fileRef = D2001EC720624FEF00074BA7 /* Jenkinsfile */; };
+		D2001ECA2062810900074BA7 /* Jenkinsfile in Resources */ = {isa = PBXBuildFile; fileRef = D2001EC92062810900074BA7 /* Jenkinsfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		D2001EAE2062338A00074BA7 /* JenkinsExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JenkinsExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2001EB22062338A00074BA7 /* JenkinsExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JenkinsExampleUITests.swift; sourceTree = "<group>"; };
 		D2001EB42062338A00074BA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2001EC720624FEF00074BA7 /* Jenkinsfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Jenkinsfile; sourceTree = SOURCE_ROOT; };
+		D2001EC92062810900074BA7 /* Jenkinsfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jenkinsfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 				D2001E992062338A00074BA7 /* Assets.xcassets */,
 				D2001E9B2062338A00074BA7 /* LaunchScreen.storyboard */,
 				D2001E9E2062338A00074BA7 /* Info.plist */,
-				D2001EC720624FEF00074BA7 /* Jenkinsfile */,
+				D2001EC92062810900074BA7 /* Jenkinsfile */,
 			);
 			path = JenkinsExample;
 			sourceTree = "<group>";
@@ -236,7 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2001E9D2062338A00074BA7 /* LaunchScreen.storyboard in Resources */,
-				D2001EC820624FF000074BA7 /* Jenkinsfile in Resources */,
+				D2001ECA2062810900074BA7 /* Jenkinsfile in Resources */,
 				D2001E9A2062338A00074BA7 /* Assets.xcassets in Resources */,
 				D2001E982062338A00074BA7 /* Main.storyboard in Resources */,
 			);
