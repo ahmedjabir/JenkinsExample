@@ -10,6 +10,9 @@ pipeline {
                 '''
             	}
         }
+	stage('Test') {
+	   echo "=====Test Started====="
+	}
     }
     post {
         always {
