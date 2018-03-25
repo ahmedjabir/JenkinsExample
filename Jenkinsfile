@@ -14,7 +14,7 @@ pipeline {
                     ls -lah
                 '''
                 echo '====== Build Started ======'
-		        sh 'xcodebuild -scheme "Testing" -configuration "Debug" build test -destination "platform=iOS,name=Ahmed Jabir’s iPhone"'
+		        sh 'xcodebuild -scheme "JenkinsExample" -configuration "Debug" build test -destination "platform=iOS,name=Ahmed Jabir’s iPhone"'
 		        echo '====== Build Ended ======'
             	}
             	post {
