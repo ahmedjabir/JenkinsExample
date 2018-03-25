@@ -11,7 +11,9 @@ pipeline {
             	}
         }
 	stage('Test') {
-	   echo '=====Test Started====='
+	    steps {
+	   	echo '=====Test Started====='
+	    }
 	}
     }
     post {
