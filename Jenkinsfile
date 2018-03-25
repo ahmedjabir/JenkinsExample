@@ -13,11 +13,13 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
+		sh 'make'
             	}
         }
 	stage('Test') {
 	    steps {
 	   	echo '=====Test Started====='
+		sh 'make check'
 	    }
 	}
     }
