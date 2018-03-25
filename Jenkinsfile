@@ -13,7 +13,7 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
-		sh 'make'
+		sh 'makefile'
 		archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             	}
         }
