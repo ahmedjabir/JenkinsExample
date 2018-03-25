@@ -14,6 +14,7 @@ pipeline {
                     ls -lah
                 '''
 		sh 'make'
+		archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             	}
         }
 	stage('Test') {
