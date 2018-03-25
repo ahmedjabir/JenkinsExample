@@ -6,7 +6,7 @@ pipeline {
 		checkout scm
 	   }
 	} 	
-	stage('Build') {
+	stage('Build & Test') {
             steps {
                 sh 'echo "Hello World"'
                 sh '''
@@ -14,7 +14,7 @@ pipeline {
                     ls -lah
                 '''
                 echo '====== Build Started ======'
-		        sh 'xcodebuild -scheme "JenkinsExample" -configuration "Debug" build test -destination "platform=iOS,name=Ahmed Jabir’s iPhone"'
+		        sh 'xcodebuild -scheme "Testing" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=11.2" -destination "platform=iOS Simulator,name=iPhone 7,OS=11.2"'
 		        echo '====== Build Ended ======'
             	}
             	post {
@@ -23,13 +23,18 @@ pipeline {
                 }
          }
         }
-	stage('Test') {
-	    steps {
-	   	echo '===== Test Started ====='
-		sh 'make check'
-		echo '===== Test Ended ====='
-	    }
-	}
+// 	stage('Test') {
+// 	    steps {
+// 	   	echo '===== Test Started ====='
+// 		sh "xcodebuild -scheme 'Testing' -enableCodeCoverage YES -configuration Debug -destination 'name=iPhone 6,OS=11.2' build-for-testing | tee build/xcodebuild-test.log | xcpretty"
+// 		echo '===== Test Ended ====='
+// 	    }
+// 	    post {
+//             failure {
+//                 echo '===== Test Failed ====='
+//             }
+//         }
+// 	}
     }
     post {
         always {
