@@ -55,7 +55,7 @@ pipeline {
 	        steps {
 	   	        echo '===== Test Started ====='
 		        //sh "xcodebuild -scheme 'Testing' -enableCodeCoverage YES -configuration Debug -destination 'name=iPhone 6,OS=11.2' build-for-testing | tee build/xcodebuild-test.log | xcpretty"
-		        sh 'xcodebuild archive -project JenkinsExample.xcodeproj -scheme Testing -archivePath JenkinsExample.xcarchive'
+		        sh 'xcodebuild archive -project JenkinsExample.xcodeproj -scheme Testing -archivePath /Users/ahmedjabir/Desktop/JenkinsBuild/JenkinsExample.xcarchive'
 		        echo '===== Test Ended ====='
 	        }
 	        post {
@@ -68,7 +68,7 @@ pipeline {
 	    stage(Deploy) {
 	        steps {
 	   	        echo '===== Deployment Started ====='
-		        sh 'xcodebuild -exportArchive -archivePath JenkinsExample.xcarchive -exportPath JenkinsExample.ipa -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates'
+		        sh 'xcodebuild -exportArchive -archivePath JenkinsExample.xcarchive -exportPath /Users/ahmedjabir/Desktop/JenkinsBuild -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates'
 		        echo '===== Deployment Compelted ====='
 	        }
 	        post {
