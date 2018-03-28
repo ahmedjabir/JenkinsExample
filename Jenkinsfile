@@ -68,7 +68,7 @@ pipeline {
 	    stage(Deploy) {
 	        steps {
 	   	        echo '===== Deployment Started ====='
-		        sh 'xcodebuild -exportArchive -archivePath JenkinsExample.xcarchive -exportPath /Users/ahmedjabir/Desktop/JenkinsBuild -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates'
+		        sh 'xcodebuild -exportArchive -archivePath /Users/ahmedjabir/Desktop/JenkinsBuild/JenkinsExample.xcarchive -exportPath /Users/ahmedjabir/Desktop/JenkinsBuild -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates'
 		        echo '===== Deployment Compelted ====='
 	        }
 	        post {
