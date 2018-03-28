@@ -26,24 +26,8 @@ pipeline {
                 '''
                 echo '====== Build Started ======'
 		        //sh 'xcodebuild -scheme "Testing" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=11.2" -destination "platform=iOS Simulator,name=iPhone 7,OS=11.2"'
-		        sh 'xcodebuild clean -project JenkinsExample.xcodeproj -sdk iphoneos -configuration Release build'
+		        sh 'xcodebuild clean -project JenkinsExample.xcodeproj -sdk iphoneos -configuration Release build -destination "platform=iOS Simulator,name=iPhone 6,OS=11.2" -destination "platform=iOS Simulator,name=iPhone 7,OS=11.2"'
 		        echo '====== Build Ended ======'
-		        
-/*
-		        echo "\u2639 ${env.JOB_NAME} (${env.BUILD_NUMBER}) has failed"
-		        echo """Build ${env.BUILD_URL} is failing in ${env.FAILURE_STAGE} stage! |Somebody should do something about that"""
-		        
-		        
-		        mail subject: "Test Subject",//"\u2639 ${env.JOB_NAME} (${env.BUILD_NUMBER}) has failed",
-                    body: "Test Body.....",//"""Build ${env.BUILD_URL} is failing in ${env.FAILURE_STAGE} stage! |Somebody should do something about that""",
-                      to: "ahmedjabir@gmail.com",
-                 replyTo: "ahmedjabir@gmail.com",
-                    from: 'ahmed.jabir@maqta.ae'
-*/
-		        
-		        
-		        
-		        
             }
         	post {
                 failure {
