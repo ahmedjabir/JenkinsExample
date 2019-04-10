@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  JenkinsExample
 //
-//  Created by AhmedJabir on 3/21/18.
-//  Copyright © 2018 AhmedJabir. All rights reserved.
+//  Created by Ahmed Jabir on 4/10/19.
+//  Copyright © 2019 Ahmed Jabir. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
