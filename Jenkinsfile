@@ -25,8 +25,8 @@ pipeline {
                     ls -lah
                 '''
                 echo '====== Build Started ======'
-		        //sh 'xcodebuild -scheme "Testing" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=11.2" -destination "platform=iOS Simulator,name=iPhone 7,OS=11.2"'
-		        sh 'xcodebuild clean -project JenkinsExample.xcodeproj -sdk iphoneos -configuration Release build -destination "platform=iOS Simulator,name=iPhone 6,OS=11.2" -destination "platform=iOS Simulator,name=iPhone 7,OS=11.2"'
+		        //sh 'xcodebuild -scheme "JenkinsExample" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=12.1" -destination "platform=iOS Simulator,name=iPhone 7,OS=12.1"'
+		        sh 'xcodebuild clean -project JenkinsExample.xcodeproj -sdk iphoneos -configuration Release build -destination "platform=iOS Simulator,name=iPhone 6,OS=12.1" -destination "platform=iOS Simulator,name=iPhone 7,OS=12.1"'
 		        echo '====== Build Ended ======'
             }
         	post {
@@ -38,7 +38,7 @@ pipeline {
 	    stage(Archive) {
 	        steps {
 	   	        echo '===== Test Started ====='
-		        //sh "xcodebuild -scheme 'Testing' -enableCodeCoverage YES -configuration Debug -destination 'name=iPhone 6,OS=11.2' build-for-testing | tee build/xcodebuild-test.log | xcpretty"
+		        //sh "xcodebuild -scheme 'JenkinsExample' -enableCodeCoverage YES -configuration Debug -destination 'name=iPhone 6,OS=12.1' build-for-testing | tee build/xcodebuild-test.log | xcpretty"
 		        sh 'xcodebuild archive -project JenkinsExample.xcodeproj -scheme Testing -archivePath /Users/ahmedjabir/Desktop/JenkinsBuild/JenkinsExample.xcarchive'
 		        echo '===== Test Ended ====='
 	        }
