@@ -432,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: maqta.gateway.mobile@gmail.com (L5UZ8FMV56)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 223QR6AJ24;
 				INFOPLIST_FILE = JenkinsExample/Info.plist;
@@ -451,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: maqta.gateway.mobile@gmail.com (L5UZ8FMV56)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 223QR6AJ24;
 				INFOPLIST_FILE = JenkinsExample/Info.plist;
