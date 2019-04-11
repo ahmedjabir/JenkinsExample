@@ -26,7 +26,7 @@ pipeline {
                 '''
                 echo '====== Build Started ======'
 		        //sh 'xcodebuild -scheme "JenkinsExample" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=12.1" -destination "platform=iOS Simulator,name=iPhone 7,OS=12.1"'
-		        sh 'xcodebuild clean -project JenkinsExample.xcodeproj -sdk iphoneos -configuration Release build -destination "platform=iOS Simulator,name=iPhone 6,OS=12.1" -destination "platform=iOS Simulator,name=iPhone 7,OS=12.1"'
+		        sh 'xcodebuild clean -project JenkinsExample.xcodeproj -sdk iphoneos -configuration Release build -destination "platform=iOS Simulator,name=iPhone 6,OS=12.1" -destination "platform=iOS Simulator,name=iPhone 7,OS=12.1" -allowProvisioningUpdates'
 		        echo '====== Build Ended ======'
             }
         	post {
