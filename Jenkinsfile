@@ -2,6 +2,7 @@ def Checkout = 'Checkout'
 def Build = 'Build'
 def Archive = 'Archive'
 def Deploy = 'Deploy'
+def Publish = 'Publish'
 
 
 pipeline {
@@ -63,7 +64,7 @@ pipeline {
 	    }
      
      
-     stage('Publish') {
+     stage(Publish) {
        environment {
          APPCENTER_API_TOKEN = credentials('30d8938de76409402011c7a9b5dd47bd68e113b0')
        }
@@ -73,6 +74,11 @@ pipeline {
                  appName: 'Jenkins',
                  pathToApp: 'three/days/Jenkins.ipa',
                  distributionGroups: 'jenkins_distribution'
+       }
+       post {
+           failure {
+               script { env.FAILURE_STAGE = Publish }
+           }
        }
      }
      
@@ -88,15 +94,6 @@ pipeline {
         }
         failure {
             echo 'This will run only if failed'
-            
-            
-            mail subject: "\u2639 ${env.JOB_NAME} (${env.BUILD_NUMBER}) has failed",
-                    body: """Build ${env.BUILD_URL} is failing in ${env.FAILURE_STAGE} stage!
-                          |Somebody should do something about that""",
-                      to: "ahmedjabir@gmail.com",
-                 replyTo: "ahmedjabir@gmail.com",
-                    from: 'ahmed.jabir@maqta.ae'
-            
         }
         unstable {
             echo 'This will run only if the run was marked as unstable'
