@@ -72,8 +72,7 @@ pipeline {
                  ownerName: 'maqta.gateway.mobile',
                  appName: 'Jenkins',
                  pathToApp: 'three/days/Jenkins.ipa',
-                 distributionGroups: 'jenkins_distribution',
-                 notifyTesters: true
+                 distributionGroups: 'jenkins_distribution'
        }
      }
      
