@@ -40,7 +40,7 @@ pipeline {
 	        steps {
 	   	        echo '===== Test Started ====='
 		        //sh "xcodebuild -scheme 'JenkinsExample' -enableCodeCoverage YES -configuration Debug -destination 'name=iPhone 6,OS=12.1' build-for-testing | tee build/xcodebuild-test.log | xcpretty"
-		        sh 'xcodebuild archive -project JenkinsExample.xcodeproj -scheme JenkinsExample -archivePath /Users/automation/Jenkins_Projects_Archives/JenkinsExample.xcarchive'
+		        sh 'xcodebuild archive -project JenkinsExample.xcodeproj -scheme JenkinsExample -archivePath Jenkins_Projects_Archives/JenkinsExample.xcarchive'
 		        echo '===== Test Ended ====='
 	        }
 	        post {
@@ -53,7 +53,7 @@ pipeline {
 	    stage(Deploy) {
 	        steps {
 	   	        echo '===== Deployment Started ====='
-		        sh 'xcodebuild -exportArchive -archivePath /Users/automation/Jenkins_Projects_Archives/JenkinsExample.xcarchive -exportPath /Users/automation/Jenkins_Projects_Archives -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates'
+		        sh 'xcodebuild -exportArchive -archivePath Jenkins_Projects_Archives/JenkinsExample.xcarchive -exportPath Jenkins_Projects_Archives -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates'
 		        echo '===== Deployment Compelted ====='
 	        }
 	        post {
@@ -76,7 +76,7 @@ pipeline {
                         distributionGroups: 'jenkins_distribution',
                         notifyTesters: true,
                         ownerName: 'maqta.gateway.mobile',
-                        pathToApp: '*.ipa',
+                        pathToApp: 'Jenkins_Projects_Archives/Jenkins.ipa',
                         pathToDebugSymbols: '',
                         pathToReleaseNotes: '',
                         releaseNotes: ''
