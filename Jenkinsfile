@@ -8,7 +8,7 @@ def Publish = 'Publish'
 pipeline {
     agent any
     stages {       
-	    /*stage(CheckOut) {
+	    stage(CheckOut) {
 	        steps {
 		        checkout scm
 	        }
@@ -17,7 +17,7 @@ pipeline {
                     script { env.FAILURE_STAGE = CheckOut }
                 }
             }
-	    }*/
+	    }
 	    stage(Build) {
             steps {
                 sh 'echo "Hello World"'
