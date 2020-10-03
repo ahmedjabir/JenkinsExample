@@ -26,7 +26,7 @@ pipeline {
                 '''
                 echo '====== Build Started ======'
 		        //sh 'xcodebuild -scheme "JenkinsExample" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=12.1" -destination "platform=iOS Simulator,name=iPhone 7,OS=12.1"'
-		        sh 'xcodebuild clean -project JenkinsExample.xcodeproj -sdk iphoneos -configuration Release build -destination "platform=iOS Simulator,name=iPhone 6,OS=12.1" -destination "platform=iOS Simulator,name=iPhone 7,OS=12.1" -allowProvisioningUpdates'
+		        sh 'xcodebuild clean -project JenkinsExample.xcodeproj -sdk iphoneos -configuration Release build -destination "platform=iOS Simulator,name=iPhone 6,OS=12.1" -destination "platform=iOS Simulator,name=iPhone 7,OS=12.1"'
 		        echo '====== Build Ended ======'
             }
         	post {
@@ -39,7 +39,7 @@ pipeline {
 	        steps {
 	   	        echo '===== Test Started ====='
 		        //sh "xcodebuild -scheme 'JenkinsExample' -enableCodeCoverage YES -configuration Debug -destination 'name=iPhone 6,OS=12.1' build-for-testing | tee build/xcodebuild-test.log | xcpretty"
-		        sh 'xcodebuild archive -project JenkinsExample.xcodeproj -scheme JenkinsExample -archivePath /Users/ahmedjabir/Desktop/JenkinsBuild/JenkinsExample.xcarchive'
+		        sh 'xcodebuild archive -project JenkinsExample.xcodeproj -scheme Testing -archivePath /Users/automation/Jenkins_Projects_Archives/JenkinsExample.xcarchive'
 		        echo '===== Test Ended ====='
 	        }
 	        post {
@@ -52,7 +52,7 @@ pipeline {
 	    stage(Deploy) {
 	        steps {
 	   	        echo '===== Deployment Started ====='
-		        sh 'xcodebuild -exportArchive -archivePath /Users/ahmedjabir/Desktop/JenkinsBuild/JenkinsExample.xcarchive -exportPath /Users/ahmedjabir/Desktop/JenkinsBuild -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates'
+		        sh 'xcodebuild -exportArchive -archivePath /Users/automation/Jenkins_Projects_Archives/JenkinsExample.xcarchive -exportPath /Users/automation/Jenkins_Projects_Archives -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates'
 		        echo '===== Deployment Compelted ====='
 	        }
 	        post {
