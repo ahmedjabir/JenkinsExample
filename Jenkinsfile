@@ -39,7 +39,7 @@ pipeline {
 	        steps {
 	   	        echo '===== Test Started ====='
 		        //sh "xcodebuild -scheme 'JenkinsExample' -enableCodeCoverage YES -configuration Debug -destination 'name=iPhone 6,OS=12.1' build-for-testing | tee build/xcodebuild-test.log | xcpretty"
-		        sh 'xcodebuild archive -project JenkinsExample.xcodeproj -scheme Testing -archivePath /Users/ahmedjabir/Desktop/JenkinsBuild/JenkinsExample.xcarchive'
+		        sh 'xcodebuild archive -project JenkinsExample.xcodeproj -scheme JenkinsExample -archivePath /Users/ahmedjabir/Desktop/JenkinsBuild/JenkinsExample.xcarchive'
 		        echo '===== Test Ended ====='
 	        }
 	        post {
