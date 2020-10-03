@@ -65,26 +65,21 @@ pipeline {
      
      
      stage(Publish) {
-       environment {
-         APPCENTER_API_TOKEN = credentials('30d8938de76409402011c7a9b5dd47bd68e113b0')
-       }
-       steps {
-       echo '===== Publish Started ====='
-         appCenter apiToken: APPCENTER_API_TOKEN,
-                 ownerName: 'maqta.gateway.mobile',
-                 appName: 'Jenkins',
-                 pathToApp: 'three/days/Jenkins.ipa',
-                 distributionGroups: 'jenkins_distribution'
-        echo '===== Publish Ended ====='
-       }
-       post {
-           failure {
-               script { env.FAILURE_STAGE = Publish }
-           }
-       }
+         steps {
+            echo '===== Publish Started ====='
+             appCenter apiToken: 'f51cd29ba6b2d34a84cd99bc37348db77624c614',
+                     ownerName: 'maqta.gateway.mobile',
+                     appName: 'Jenkins',
+                     pathToApp: '/Users/automation/Jenkins_Projects_Archives/JenkinsExample.ipa',
+                     distributionGroups: 'jenkins_distribution'
+            echo '===== Publish Ended ====='
+         }
+         post {
+             failure {
+                 script { env.FAILURE_STAGE = Publish }
+             }
+         }
      }
-     
-     
     }
     
     post {
