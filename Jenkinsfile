@@ -76,7 +76,7 @@ pipeline {
                         distributionGroups: 'jenkins_distribution',
                         notifyTesters: true,
                         ownerName: 'maqta.gateway.mobile',
-                        pathToApp: 'Jenkins_Projects_Archives/Jenkins.ipa',
+                        pathToApp: 'build/Release-iphoneos/JenkinsExample.app',
                         pathToDebugSymbols: '',
                         pathToReleaseNotes: '',
                         releaseNotes: ''
