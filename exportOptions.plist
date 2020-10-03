@@ -10,7 +10,7 @@
 	<false/>
 	<key>uploadBitcode</key>
 	<false/>
-	<key>provisionProfiles</key>
+	<key>provisioningProfiles</key>
 	<dict>
 		<key>ae.adports.maqtagateway.trackntrace</key>
 		<string>Manara - Distribution Profile</string>
