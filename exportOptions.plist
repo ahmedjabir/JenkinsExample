@@ -10,5 +10,10 @@
 	<false/>
 	<key>uploadBitcode</key>
 	<false/>
+	<key>provisionProfiles</key>
+	<dict>
+		<key>ae.adports.maqtagateway.trackntrace</key>
+		<string>Manara - Distribution Profile</string>
+	</dict>
 </dict>
 </plist>
